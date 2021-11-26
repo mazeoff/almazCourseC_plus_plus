@@ -86,6 +86,23 @@ public:
         return numerator <= op.numerator;
     }
 
+    void operator+=(FracNum op) {
+        numerator = numerator * op.denominator + op.numerator * denominator;
+        denominator = denominator * op.denominator;
+    }
+    void operator-=(FracNum op) {
+        numerator = numerator * op.denominator - op.numerator * denominator;
+        denominator = denominator * op.denominator;
+    }
+    void operator*=(FracNum op) {
+        numerator = numerator * op.numerator;
+        denominator = denominator * op.denominator;
+    }
+    void operator/=(FracNum op) {
+        numerator = numerator * op.denominator;
+        denominator = denominator * op.numerator;
+    }
+
 };
 int main()
 {
@@ -98,6 +115,6 @@ int main()
 
     b.setNumerator(5);
     b.setDenominator(6);
-
-    cout << (a < b);
+    a *= b;
+    cout << a.show();
 }
