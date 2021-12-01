@@ -172,25 +172,25 @@ void List::deleteItemsBetween(int firstItem, int secondItem) {
     prev = last;
     post = last;
 
-    while (currCount - 1 != firstItem) {
+    while (currCount != firstItem) {
         prev = prev->next;
         currCount--;
     }
     currCount = countItemsOfList;
-    while (currCount + 1 != secondItem) {
+    while (currCount != secondItem) {
 
         post = post->next;
         currCount--;
     }
     current = post->next;
-    Link* temp = post->next;
-    while (current->next != post) {
+    Link* temp = current;
+    while (current != prev) {
         temp = current;
-        delete temp;
         current = current->next;
+        delete temp;
     }
 
-    prev->next = post;
+    post->next = prev;
 }
 
 class FracNum {
@@ -316,14 +316,14 @@ int main()
     list.addItemToBegin(5);
     list.addItemToBegin(6);
     list.addItemToBegin(7);
-    /*list.addItemToEnd(3);
+    list.addItemToEnd(3);
     list.addItemToEnd(4);
     list.addItemToEnd(5);
     list.addItemToEnd(6);
-    list.addItemToEnd(7);*/
-    //list.put(88,6);
-    //list.deleteItem(6);
-    list.deleteItemsBetween(1, 5);
+    list.addItemToEnd(7);
+    list.put(88,6);
+    list.deleteItem(6);
+    list.deleteItemsBetween(1, 4);
     list.show();
-   // cout << "Count of list: " + to_string(list.getCountOfList());
+    cout << "Count of list: " + to_string(list.getCountOfList());
 }
