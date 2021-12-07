@@ -1,31 +1,36 @@
-#include "classFigure.h"
+#include "Figure.h"
+
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
-Figure(string name)
+Figure::Figure(string name)
 {
 	this->name = name;
-	this->type = type;
+	//this->type = type;
 }
 
 string Figure::getName()
 {
 	return "Name: " + name;
 }
-void getType()
+void Figure::getType()
 {
 	cout << "Type of " << name << " is a " + type << endl;
 }
-void showArea(int area) {
+void Figure::showArea(int area) {
 	cout << "Area of " << name << " = " << area << endl;
 }
 
-void showPerimeter(int perimeter) {
+void Figure::showPerimeter(int perimeter) {
 	if (type == "flat")
 		cout << "Perimeter of " << name << " = " << perimeter << endl;
 	else
 		cout << "Error! Impossible to find the perimeter in " << name << endl;
 }
-void showVolume(int volume) {
+void Figure::showVolume(int volume) {
 	if (type == "volume")
 		cout << "Volume of " << name << " = " << volume << endl;
 	else

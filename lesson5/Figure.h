@@ -1,7 +1,6 @@
 #pragma once
-//#include <string>
-
-//using namespace std;
+#include <string>
+using namespace std;
 
 class Figure
 {
